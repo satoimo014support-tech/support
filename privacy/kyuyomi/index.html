@@ -6,168 +6,363 @@
   <meta name="description" content="きゅうよみ（オフラインで給与記録）のプライバシーポリシー">
   <title>プライバシーポリシー | きゅうよみ</title>
   <style>
+
     :root {
+      /* ページ全体の背景色を定義する */
       --background-color: #FCF4DD;
+
+      /* カードなどの少し明るい背景色を定義する */
+      --surface-color: #FFFDF7;
+
+      /* メインカラーのブラウンを定義する */
       --primary-color: #7D5A37;
+
+      /* アクセントカラーのオリーブを定義する */
       --accent-color: #8B8C43;
-      --accent-soft-color: rgba(139, 140, 67, 0.10);
+
+      /* 本文用の濃い文字色を定義する */
       --text-color: #44372D;
+
+      /* 補助的な文字色を定義する */
       --muted-text-color: #74685C;
+
+      /* 枠線用の色を定義する */
       --border-color: rgba(125, 90, 55, 0.16);
-      --content-width: 1180px;
+
+      /* 薄いアクセント背景色を定義する */
+      --accent-soft-color: rgba(139, 140, 67, 0.10);
+
+      /* コンテンツ最大幅をサポートページと統一する */
+      --content-width: 1040px;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    /* すべての要素でサイズ計算を扱いやすくする */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* ページ内リンクのスクロールを滑らかにする */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ページ全体の基本スタイルをサポートページと統一する */
     body {
       margin: 0;
-      background: var(--background-color);
       color: var(--text-color);
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
-      line-height: 1.85;
-      -webkit-font-smoothing: antialiased;
+      background:
+        radial-gradient(
+          circle at 8% 8%,
+          rgba(139, 140, 67, 0.09),
+          transparent 26rem
+        ),
+        radial-gradient(
+          circle at 92% 12%,
+          rgba(125, 90, 55, 0.07),
+          transparent 30rem
+        ),
+        var(--background-color);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Hiragino Sans",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        Meiryo,
+        sans-serif;
+      line-height: 1.75;
     }
-    a { color: var(--primary-color); }
-    .page-container { width: min(calc(100% - 48px), 1120px); margin: 0 auto; }
+
+    /* リンクの基本スタイルをサポートページと統一する */
+    a {
+      color: inherit;
+    }
+
+    /* ページ上部のヘッダーをサポートページと統一する */
     .site-header {
       position: sticky;
-      z-index: 10;
       top: 0;
-      border-bottom: 1px solid rgba(125, 90, 55, 0.10);
-      background: rgba(252, 244, 221, 0.92);
+      z-index: 20;
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(252, 244, 221, 0.88);
       backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
+
+    /* ヘッダー内部の横幅と余白をサポートページと統一する */
     .site-header__inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 68px;
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 18px 24px;
     }
+
+    /* クリエイター名をサポートページと同じ見た目にする */
     .brand {
-      color: var(--primary-color);
-      font-family: Georgia, "Times New Roman", "Yu Mincho", serif;
-      font-size: 1.15rem;
-      font-weight: 700;
       text-decoration: none;
-    }
-    .back-link {
-      color: var(--muted-text-color);
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-    main { padding: 76px 0 96px; }
-    .policy-header, .policy-content { max-width: var(--content-width); }
-    .eyebrow {
-      margin: 0 0 10px;
-      color: var(--accent-color);
-      font-size: 0.78rem;
       font-weight: 800;
-      letter-spacing: 0.12em;
+      letter-spacing: -0.02em;
+    }
+
+    /* SupportリンクをサポートページのContactリンクと同じ見た目にする */
+    .back-link {
+      color: var(--primary-color);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* Supportリンクのホバー状態を設定する */
+    .back-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* ページ全体のコンテンツ幅をサポートページと統一する */
+    .page-container {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* プライバシーポリシー本文全体を設定する */
+    main {
+      padding: 82px 0 96px;
+    }
+
+    /* 見出し部分と本文部分は利用可能な横幅を十分に使う */
+    .policy-header,
+    .policy-content {
+      width: 100%;
+      max-width: none;
+    }
+
+    /* Privacy Policyの小見出しをサポートページのトーンに揃える */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      color: var(--accent-color);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
-    h1, h2 {
-      color: var(--primary-color);
-      font-family: Georgia, "Times New Roman", "Yu Mincho", "Hiragino Mincho ProN", serif;
-      font-weight: 500;
+
+    /* 小見出し左側にサポートページと同じ丸い装飾を表示する */
+    .eyebrow::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      content: "";
     }
+
+    /* アプリ名をサポートページの見出しと同じ書体にする */
     h1 {
       margin: 0;
-      font-size: clamp(2.2rem, 7vw, 4.4rem);
-      line-height: 1.12;
-      letter-spacing: -0.045em;
+      color: var(--primary-color);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+      font-size: clamp(2.7rem, 8vw, 5.8rem);
+      font-weight: 500;
+      line-height: 1.06;
+      letter-spacing: -0.055em;
     }
+
+    /* サブタイトルを設定する */
     .subtitle {
-      margin: 12px 0 0;
-      color: var(--muted-text-color);
-      font-weight: 700;
+      margin: 14px 0 0;
+      color: var(--accent-color);
+      font-size: 1rem;
+      font-weight: 800;
     }
+
+    /* 冒頭説明を横幅いっぱいに近い形で表示する */
     .lead {
-      max-width: 1120px;
-      margin: 28px 0 0;
+      max-width: 100%;
+      margin: 30px 0 0;
       color: var(--muted-text-color);
+      font-size: clamp(1rem, 2vw, 1.12rem);
     }
+
+    /* ローカル保存についての強調ボックスを設定する */
     .local-data-note {
-      margin-top: 36px;
+      width: 100%;
+      margin-top: 34px;
       padding: 18px 20px;
       border-left: 3px solid var(--accent-color);
       background: var(--accent-soft-color);
       color: var(--muted-text-color);
     }
-    .local-data-note strong { color: var(--text-color); }
-    .policy-content { margin-top: 64px; }
+
+    /* 強調ボックス内の重要部分を濃くする */
+    .local-data-note strong {
+      color: var(--text-color);
+    }
+
+    /* プライバシーポリシー本文の開始位置を設定する */
+    .policy-content {
+      margin-top: 64px;
+    }
+
+    /* 各項目をサポートページのセクションと馴染む見た目にする */
     .policy-section {
       padding: 34px 0;
       border-top: 1px solid var(--border-color);
     }
+
+    /* 各項目の見出しをサポートページと同じ書体にする */
     .policy-section h2 {
       margin: 0 0 14px;
-      font-size: clamp(1.35rem, 4vw, 1.8rem);
-      line-height: 1.35;
+      color: var(--primary-color);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+      font-size: clamp(1.45rem, 4vw, 2rem);
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
     }
+
+    /* 各項目の本文を設定する */
     .policy-section p {
       margin: 0;
       color: var(--muted-text-color);
     }
-    .policy-section p + p { margin-top: 14px; }
+
+    /* 連続する段落の間隔を設定する */
+    .policy-section p + p {
+      margin-top: 14px;
+    }
+
+    /* メールアドレスリンクをサポートページと揃える */
     .email-link {
       display: inline-block;
       max-width: 100%;
-      margin-top: 14px;
+      margin-top: 18px;
+      color: var(--primary-color);
+      font-size: clamp(1rem, 3vw, 1.18rem);
       font-weight: 800;
       overflow-wrap: anywhere;
+      text-decoration-thickness: 1px;
       text-underline-offset: 5px;
     }
+
+    /* 制定日を設定する */
     .updated-date {
       margin-top: 46px;
       color: var(--muted-text-color);
       font-size: 0.86rem;
     }
-    .site-footer { border-top: 1px solid rgba(125, 90, 55, 0.12); }
+
+    /* フッターをサポートページと統一する */
+    .site-footer {
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* フッター内部をサポートページと統一する */
     .site-footer__inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      min-height: 88px;
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 28px 24px 36px;
       color: var(--muted-text-color);
       font-size: 0.82rem;
     }
+
+    /* フッター内リンクをサポートページと統一する */
     .site-footer a {
-      color: var(--muted-text-color);
+      color: var(--primary-color);
+      font-weight: 700;
       text-decoration: none;
     }
 
+    /* デスクトップでは指定した位置以外で冒頭説明が不自然に折り返されにくくする */
     @media (min-width: 761px) {
       .lead {
         white-space: nowrap;
       }
-
-      .local-data-note {
-        max-width: 1180px;
-      }
     }
 
+    /* タブレット以下の表示を調整する */
     @media (max-width: 760px) {
-      .page-container { width: min(calc(100% - 36px), 1120px); }
-      .site-header__inner { min-height: 62px; }
-      main { padding: 54px 0 72px; }
-      .policy-content { margin-top: 46px; }
-      .policy-section { padding: 28px 0; }
-      .local-data-note { padding: 16px; }
+      /* ヘッダーの上下余白を少し詰める */
+      .site-header__inner {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      /* 本文の上下余白をスマートフォン向けに調整する */
+      main {
+        padding: 58px 0 72px;
+      }
+
+      /* スマートフォンでは冒頭説明を画面幅に合わせて自然に折り返す */
+      .lead {
+        white-space: normal;
+      }
+
+      /* 本文開始前の余白を調整する */
+      .policy-content {
+        margin-top: 48px;
+      }
+
+      /* 各項目の上下余白を調整する */
+      .policy-section {
+        padding: 28px 0;
+      }
+
+      /* 強調ボックスの余白を調整する */
+      .local-data-note {
+        padding: 16px 18px;
+      }
+
+      /* フッターを縦並びにする */
       .site-footer__inner {
         align-items: flex-start;
         flex-direction: column;
-        justify-content: center;
-        padding-top: 22px;
-        padding-bottom: 22px;
       }
     }
+
+    /* 小さいスマートフォン向けに左右余白を調整する */
+    @media (max-width: 480px) {
+      .site-header__inner,
+      .page-container,
+      .site-footer__inner {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      /* 大見出しの折り返しを自然にする */
+      h1 {
+        line-height: 1.08;
+      }
+    }
+
   </style>
 </head>
 <body id="top">
   <header class="site-header">
-    <div class="page-container site-header__inner">
+    <div class="site-header__inner">
+      <!-- クリエイター名を表示する -->
       <a class="brand" href="../../">satoimo014</a>
+
+      <!-- サポートページへ戻るリンクを表示する -->
       <a class="back-link" href="../../">← Support</a>
     </div>
   </header>
@@ -279,7 +474,7 @@
   <footer class="site-footer">
     <div class="page-container site-footer__inner">
       <span id="copyrightText">© satoimo014. All rights reserved.</span>
-      <a href="#top">Back to top</a>
+      <a class="footer-link" href="#top">Back to top</a>
     </div>
   </footer>
 
