@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="satoimo014 が公開・管理しているアプリケーションのサポートページです。"
+  >
+
+  <meta name="theme-color" content="#FCF4DD">
+
+  <title>satoimo014 App Support</title>
+
+  <style>
+    /* =========================================================
+       Color Theme
+       ---------------------------------------------------------
+       Cream : #FCF4DD  背景
+       Brown : #7D5A37  メインカラー
+       Olive : #8B8C43  アクセントカラー
+
+       添付いただいた水彩イラストの、
+       紙・木・葉の色合いをベースにしています。
+       ========================================================= */
+
+    :root {
+      /* ページ全体の背景色を定義する */
+      --background-color: #FCF4DD;
+
+      /* カードなどの少し明るい背景色を定義する */
+      --surface-color: #FFFDF7;
+
+      /* メインカラーのブラウンを定義する */
+      --primary-color: #7D5A37;
+
+      /* アクセントカラーのオリーブを定義する */
+      --accent-color: #8B8C43;
+
+      /* 本文用の濃い文字色を定義する */
+      --text-color: #44372D;
+
+      /* 補助的な文字色を定義する */
+      --muted-text-color: #74685C;
+
+      /* 枠線用の色を定義する */
+      --border-color: rgba(125, 90, 55, 0.16);
+
+      /* 薄いアクセント背景色を定義する */
+      --accent-soft-color: rgba(139, 140, 67, 0.10);
+
+      /* 影の色を定義する */
+      --shadow-color: rgba(91, 65, 39, 0.08);
+
+      /* コンテンツの最大幅を定義する */
+      --content-width: 1040px;
+    }
+
+    /* すべての要素でサイズ計算を扱いやすくする */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* ページ内リンクのスクロールを滑らかにする */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ページ全体の基本スタイルを設定する */
+    body {
+      margin: 0;
+      color: var(--text-color);
+      background:
+        radial-gradient(
+          circle at 8% 8%,
+          rgba(139, 140, 67, 0.09),
+          transparent 26rem
+        ),
+        radial-gradient(
+          circle at 92% 12%,
+          rgba(125, 90, 55, 0.07),
+          transparent 30rem
+        ),
+        var(--background-color);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Hiragino Sans",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        Meiryo,
+        sans-serif;
+      line-height: 1.75;
+    }
+
+    /* リンクの基本スタイルを設定する */
+    a {
+      color: inherit;
+    }
+
+    /* ページ上部のヘッダーを設定する */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(252, 244, 221, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* ヘッダー内部の横幅と配置を設定する */
+    .site-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 18px 24px;
+    }
+
+    /* クリエイター名のスタイルを設定する */
+    .brand {
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    /* ヘッダーのサポートリンクを設定する */
+    .header-contact {
+      color: var(--primary-color);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* ヘッダーのサポートリンクにマウスを重ねたときの状態を設定する */
+    .header-contact:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* ページ全体のコンテンツ幅を設定する */
+    .page-container {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ページ上部のヒーローエリアを設定する */
+    .hero {
+      position: relative;
+      padding: 96px 0 82px;
+      overflow: hidden;
+    }
+
+    /* ヒーロー内の小さなラベルを設定する */
+    .hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      color: var(--accent-color);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* ラベル左側の丸い装飾を設定する */
+    .hero__eyebrow::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      content: "";
+    }
+
+    /* メイン見出しを設定する */
+    .hero__title {
+      max-width: 780px;
+      margin: 0;
+      color: var(--primary-color);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+      font-size: clamp(2.7rem, 8vw, 5.8rem);
+      font-weight: 500;
+      line-height: 1.06;
+      letter-spacing: -0.055em;
+    }
+
+    /* メイン見出し内の一部をアクセント色にする */
+    .hero__title-accent {
+      color: var(--accent-color);
+    }
+
+    /* ヒーローの説明文を設定する */
+    .hero__description {
+      max-width: 650px;
+      margin: 30px 0 0;
+      color: var(--muted-text-color);
+      font-size: clamp(1rem, 2vw, 1.12rem);
+    }
+
+    /* ヒーロー下部の案内リンクを設定する */
+    .hero__action {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 34px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--primary-color);
+      color: var(--primary-color);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* メインのセクション共通スタイルを設定する */
+    .section {
+      padding: 82px 0 86px;
+    }
+
+    /* セクションの上部を設定する */
+    .section-heading {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    /* セクション見出しを設定する */
+    .section-title {
+      margin: 0;
+      color: var(--primary-color);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+    }
+
+    /* セクションの補足テキストを設定する */
+    .section-note {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted-text-color);
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    /* アプリカードを並べるグリッドを設定する */
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    /* アプリカードの見た目を設定する */
+    .app-card {
+      display: flex;
+      min-height: 250px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 30px;
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      background: rgba(255, 253, 247, 0.82);
+      box-shadow: 0 18px 50px var(--shadow-color);
+      transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+    }
+
+    /* アプリカードにマウスを重ねたときの状態を設定する */
+    .app-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(139, 140, 67, 0.42);
+      box-shadow: 0 22px 56px rgba(91, 65, 39, 0.12);
+    }
+
+    /* アプリ名を設定する */
+    .app-card__title {
+      margin: 2px 0 0;
+      color: var(--primary-color);
+      font-size: 1.35rem;
+      line-height: 1.4;
+    }
+
+    /* アプリの説明文を設定する */
+    .app-card__description {
+      margin: 10px 0 0;
+      color: var(--muted-text-color);
+      font-size: 0.95rem;
+    }
+
+    /* アプリカード下部を設定する */
+    .app-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    /* お問い合わせボタンを設定する */
+    .contact-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 16px;
+      border: 1px solid var(--primary-color);
+      border-radius: 999px;
+      background: var(--primary-color);
+      color: #FFFDF7;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    /* お問い合わせボタンのホバー状態を設定する */
+    .contact-button:hover {
+      background: transparent;
+      color: var(--primary-color);
+      transform: translateY(-1px);
+    }
+
+    /* App Storeリンクを設定する */
+    .store-link {
+      color: var(--muted-text-color);
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* App Storeリンクのホバー状態を設定する */
+    .store-link:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* アプリが未登録の場合の表示を設定する */
+    .empty-state {
+      grid-column: 1 / -1;
+      padding: 38px;
+      border: 1px dashed rgba(125, 90, 55, 0.28);
+      border-radius: 24px;
+      color: var(--muted-text-color);
+      text-align: center;
+    }
+
+    /* お問い合わせセクション全体を Applications と同じ余白感で設定する */
+    .contact-section {
+      padding: 10px 0 96px;
+    }
+
+    /* お問い合わせ内容をページ背景へ直接配置する */
+    .contact-panel {
+      max-width: 920px;
+    }
+
+    /* お問い合わせ見出しを Applications と同じトーンへ揃える */
+    .contact-panel__title {
+      margin: 0;
+      color: var(--primary-color);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    /* お問い合わせ説明文を設定する */
+    .contact-panel__description {
+      max-width: 920px;
+      margin: 14px 0 0;
+      color: var(--muted-text-color);
+    }
+
+    /* メールアドレスへのリンクを設定する */
+    .email-link {
+      display: inline-block;
+      max-width: 100%;
+      margin-top: 24px;
+      color: var(--primary-color);
+      font-size: clamp(1rem, 3vw, 1.24rem);
+      font-weight: 800;
+      overflow-wrap: anywhere;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 5px;
+    }
+
+    /* 問い合わせ時のお願いを表示するボックスを設定する */
+    .contact-hint {
+      max-width: 920px;
+      margin-top: 28px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--accent-color);
+      background: var(--accent-soft-color);
+      color: var(--muted-text-color);
+      font-size: 0.9rem;
+    }
+
+    /* フッターを設定する */
+    .site-footer {
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* フッター内部を設定する */
+    .site-footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 28px 24px 36px;
+      color: var(--muted-text-color);
+      font-size: 0.82rem;
+    }
+
+    /* フッター内のトップへ戻るリンクを設定する */
+    .footer-link {
+      color: var(--primary-color);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* タブレット以下の表示を調整する */
+    @media (max-width: 760px) {
+      /* ヘッダーの上下余白を少し詰める */
+      .site-header__inner {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      /* セクションの余白をスマートフォン向けに調整する */
+      .section {
+        padding-top: 58px;
+        padding-bottom: 68px;
+      }
+
+      /* 見出しと補足文を縦並びにする */
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 22px;
+      }
+
+      /* 補足文を左揃えにする */
+      .section-note {
+        max-width: 100%;
+        text-align: left;
+      }
+
+      /* アプリカードを1列表示にする */
+      .app-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* カードの高さをコンテンツに合わせる */
+      .app-card {
+        min-height: 0;
+      }
+
+      /* Contactセクションの余白を調整する */
+      .contact-section {
+        padding-top: 0;
+        padding-bottom: 72px;
+      }
+
+      /* Contact本文は画面幅に合わせる */
+      .contact-panel,
+      .contact-panel__description,
+      .contact-hint {
+        max-width: 100%;
+      }
+
+      /* メールアドレスは必要に応じて自然に折り返す */
+      .email-link {
+        word-break: break-word;
+      }
+
+      /* フッターを縦並びにする */
+      .site-footer__inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* ページ左右の余白を小さい画面向けに調整する */
+      .site-header__inner,
+      .page-container,
+      .site-footer__inner {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      /* 見出しの折り返しを自然にする */
+      .section-title,
+      .contact-panel__title {
+        line-height: 1.15;
+      }
+
+      /* アプリカードの内側余白を少し詰める */
+      .app-card {
+        padding: 22px;
+      }
+
+      /* カード下部を縦並びにする */
+      .app-card__footer {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      /* お問い合わせボタンを横幅いっぱいにする */
+      .contact-button {
+        width: 100%;
+      }
+
+      /* App Storeリンクをボタン下に自然に配置する */
+      .store-link {
+        display: inline-block;
+      }
+
+      /* 問い合わせ案内の余白を調整する */
+      .contact-hint {
+        padding: 14px 16px;
+      }
+    }
+
+    /* OSでアニメーション削減が指定されている場合は動きを抑える */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .app-card,
+      .contact-button {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+  <!-- ページ上部のナビゲーションを表示する -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <!-- クリエイター名を表示する -->
+      <a class="brand" href="#top">satoimo014</a>
+
+      <!-- 共通サポート窓口へのリンクを表示する -->
+      <a class="header-contact" href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- ページ本体を表示する -->
+  <main>
+    <div class="page-container">
+      <!-- 管理しているアプリケーション一覧を表示する -->
+      <section id="apps" class="section">
+        <p class="hero__description" style="margin: 0 0 34px;">
+          satoimo014 が公開・管理しているアプリケーションのサポートページです。<br>
+          アプリに関する不具合、ご意見、ご要望などを受け付けています。
+        </p>
+
+        <div class="section-heading">
+          <h2 class="section-title">Applications</h2>
+
+          <p class="section-note">
+            お問い合わせボタンからメールを開くと、
+            対象アプリ名が件名に自動入力されます。
+          </p>
+        </div>
+
+        <!-- JavaScriptでアプリカードを追加する -->
+        <div id="appGrid" class="app-grid"></div>
+      </section>
+
+      <!-- Applications と同じトーンで共通のお問い合わせ窓口を表示する -->
+      <section id="contact" class="contact-section">
+        <div class="contact-panel">
+          <h2 class="contact-panel__title">
+            Contact &amp; Support
+          </h2>
+
+          <p class="contact-panel__description">
+            各アプリケーションに関するお問い合わせは、下記のメールアドレスにて受け付けています。<br>
+            内容を確認のうえ、必要に応じて返信いたします。
+          </p>
+
+          <!-- 共通のサポートメールアドレスを表示する -->
+          <a
+            class="email-link"
+            href="mailto:satoimo014.support@gmail.com?subject=%E3%80%90%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%80%91"
+          >
+            satoimo014.support@gmail.com
+          </a>
+
+          <div class="contact-hint">
+            お問い合わせの際は、対象のアプリ名とお問い合わせ内容を
+            ご記載いただけると確認がスムーズです。
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ページ下部のフッターを表示する -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <!-- 現在の年はJavaScriptで自動入力する -->
+      <span id="copyrightText"></span>
+
+      <!-- ページ上部へ戻るリンクを表示する -->
+      <a class="footer-link" href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    /* =========================================================
+       アプリの追加・編集は、基本的にこの APP_LIST だけ変更します。
+
+       appStoreUrl がまだない場合は空文字 "" のままでOKです。
+       ========================================================= */
+
+    // 公開・管理しているアプリケーション情報を定義する
+    const APP_LIST = [
+      {
+        // アプリ名を設定する
+        name: "Sample App",
+
+        // アプリについての短い説明を設定する
+        description:
+          "ここにアプリの概要を1〜2行程度で記載します。",
+
+        // App StoreのURLを設定する
+        // リリース前などでURLがない場合は空文字にします
+        appStoreUrl: ""
+      },
+
+      // ---------------------------------------------------------
+      // 2つ目以降のアプリは、上の内容をコピーして追加します。
+      //
+      // 例:
+      //
+      // {
+      //   name: "Another App",
+      //   description: "Another App の簡単な説明です。",
+      //   appStoreUrl: "https://apps.apple.com/..."
+      // }
+      // ---------------------------------------------------------
+    ];
+
+    // すべてのアプリで共通利用するサポートメールアドレスを定義する
+    const SUPPORT_EMAIL_ADDRESS = "satoimo014.support@gmail.com";
+
+    // アプリ一覧を表示するHTML要素を取得する
+    const appGridElement = document.getElementById("appGrid");
+
+    // 著作権表記を表示するHTML要素を取得する
+    const copyrightTextElement = document.getElementById("copyrightText");
+
+    // HTMLへ文字列を安全に埋め込むための関数を定義する
+    function escapeHtml(inputText) {
+      // 一時的なdiv要素を作成する
+      const temporaryElement = document.createElement("div");
+
+      // 入力された文字列をテキストとして設定する
+      temporaryElement.textContent = inputText ?? "";
+
+      // HTMLとして安全な文字列を返す
+      return temporaryElement.innerHTML;
+    }
+
+    // アプリ別のお問い合わせメールURLを作成する関数を定義する
+    function createSupportMailUrl(appName) {
+      // メールの件名を作成する
+      const emailSubject = `【${appName}】お問い合わせ`;
+
+      // メール本文のひな形を作成する
+      const emailBody =
+        `アプリ名: ${appName}\n\n` +
+        `お問い合わせ内容:\n`;
+
+      // 件名をURL用にエンコードする
+      const encodedEmailSubject = encodeURIComponent(emailSubject);
+
+      // 本文をURL用にエンコードする
+      const encodedEmailBody = encodeURIComponent(emailBody);
+
+      // mailto形式のURLを返す
+      return (
+        `mailto:${SUPPORT_EMAIL_ADDRESS}` +
+        `?subject=${encodedEmailSubject}` +
+        `&body=${encodedEmailBody}`
+      );
+    }
+
+    // アプリ一覧を画面へ表示する関数を定義する
+    function renderAppList() {
+      // アプリ一覧が空の場合の表示を行う
+      if (APP_LIST.length === 0) {
+        // 準備中のメッセージを表示する
+        appGridElement.innerHTML = `
+          <div class="empty-state">
+            現在、公開中のアプリ情報を準備しています。
+          </div>
+        `;
+
+        // 以降の処理を終了する
+        return;
+      }
+
+      // アプリごとのカードHTMLを作成する
+      const appCardHtml = APP_LIST.map((appInfo) => {
+        // お問い合わせメールURLを作成する
+        const supportMailUrl = createSupportMailUrl(appInfo.name);
+
+        // App Store URLがある場合のみリンクを表示する
+        const appStoreLinkHtml = appInfo.appStoreUrl
+          ? `
+            <a
+              class="store-link"
+              href="${escapeHtml(appInfo.appStoreUrl)}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              App Store ↗
+            </a>
+          `
+          : "";
+
+        // アプリカード1件分のHTMLを返す
+        return `
+          <article class="app-card">
+            <div>
+              <h3 class="app-card__title">
+                ${escapeHtml(appInfo.name)}
+              </h3>
+
+              <p class="app-card__description">
+                ${escapeHtml(appInfo.description)}
+              </p>
+            </div>
+
+            <div class="app-card__footer">
+              <a class="contact-button" href="${supportMailUrl}">
+                お問い合わせ
+                <span aria-hidden="true">→</span>
+              </a>
+
+              ${appStoreLinkHtml}
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      // 完成したカード一覧を画面へ表示する
+      appGridElement.innerHTML = appCardHtml;
+    }
+
+    // 現在の年を取得する
+    const currentYear = new Date().getFullYear();
+
+    // 著作権表記を画面へ表示する
+    copyrightTextElement.textContent =
+      `© ${currentYear} satoimo014. All rights reserved.`;
+
+    // ページ読み込み時にアプリ一覧を表示する
+    renderAppList();
+  </script>
+</body>
+</html>
