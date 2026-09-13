@@ -366,6 +366,25 @@
       text-align: center;
     }
 
+    /* プライバシーポリシーへのリンクを設定する */
+    .privacy-link {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin-top: 18px;
+      color: var(--muted-text-color);
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    /* プライバシーポリシーリンクのホバー表示を設定する */
+    .privacy-link:hover {
+      color: var(--primary-color);
+    }
+
     /* お問い合わせセクション全体を Applications と同じ余白感で設定する */
     .contact-section {
       padding: 10px 0 96px;
@@ -652,29 +671,11 @@
     // 公開・管理しているアプリケーション情報を定義する
     const APP_LIST = [
       {
-        // アプリ名を設定する
-        name: "Sample App",
-
-        // アプリについての短い説明を設定する
-        description:
-          "ここにアプリの概要を1〜2行程度で記載します。",
-
-        // App StoreのURLを設定する
-        // リリース前などでURLがない場合は空文字にします
-        appStoreUrl: ""
-      },
-
-      // ---------------------------------------------------------
-      // 2つ目以降のアプリは、上の内容をコピーして追加します。
-      //
-      // 例:
-      //
-      // {
-      //   name: "Another App",
-      //   description: "Another App の簡単な説明です。",
-      //   appStoreUrl: "https://apps.apple.com/..."
-      // }
-      // ---------------------------------------------------------
+        name: "きゅうよみ",
+        description: "給与明細をクラウドに上げずにオフラインで記録して、振り返ることができます。",
+        appStoreUrl: "",
+        privacyPolicyUrl: "./privacy/kyuyomi/"
+      }
     ];
 
     // すべてのアプリで共通利用するサポートメールアドレスを定義する
@@ -756,6 +757,18 @@
           `
           : "";
 
+        // プライバシーポリシーURLがある場合のみリンクを表示する
+        const privacyPolicyLinkHtml = appInfo.privacyPolicyUrl
+          ? `
+            <a
+              class="privacy-link"
+              href="${escapeHtml(appInfo.privacyPolicyUrl)}"
+            >
+              プライバシーポリシー
+            </a>
+          `
+          : "";
+
         // アプリカード1件分のHTMLを返す
         return `
           <article class="app-card">
@@ -777,6 +790,8 @@
 
               ${appStoreLinkHtml}
             </div>
+
+            ${privacyPolicyLinkHtml}
           </article>
         `;
       }).join("");
