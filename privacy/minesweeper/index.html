@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="マインスイーパーのプライバシーポリシー">
+  <title>プライバシーポリシー | マインスイーパー</title>
+  <style>
+
+    :root {
+      /* ページ全体の背景色を定義する */
+      --background-color: #FCF4DD;
+
+      /* カードなどの少し明るい背景色を定義する */
+      --surface-color: #FFFDF7;
+
+      /* メインカラーのブラウンを定義する */
+      --primary-color: #7D5A37;
+
+      /* アクセントカラーのオリーブを定義する */
+      --accent-color: #8B8C43;
+
+      /* 本文用の濃い文字色を定義する */
+      --text-color: #44372D;
+
+      /* 補助的な文字色を定義する */
+      --muted-text-color: #74685C;
+
+      /* 枠線用の色を定義する */
+      --border-color: rgba(125, 90, 55, 0.16);
+
+      /* 薄いアクセント背景色を定義する */
+      --accent-soft-color: rgba(139, 140, 67, 0.10);
+
+      /* コンテンツ最大幅をサポートページと統一する */
+      --content-width: 1040px;
+    }
+
+    /* すべての要素でサイズ計算を扱いやすくする */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* ページ内リンクのスクロールを滑らかにする */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ページ全体の基本スタイルをサポートページと統一する */
+    body {
+      margin: 0;
+      color: var(--text-color);
+      background:
+        radial-gradient(
+          circle at 8% 8%,
+          rgba(139, 140, 67, 0.09),
+          transparent 26rem
+        ),
+        radial-gradient(
+          circle at 92% 12%,
+          rgba(125, 90, 55, 0.07),
+          transparent 30rem
+        ),
+        var(--background-color);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Hiragino Sans",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        Meiryo,
+        sans-serif;
+      line-height: 1.75;
+    }
+
+    /* リンクの基本スタイルをサポートページと統一する */
+    a {
+      color: inherit;
+    }
+
+    /* ページ上部のヘッダーをサポートページと統一する */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(252, 244, 221, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* ヘッダー内部の横幅と余白をサポートページと統一する */
+    .site-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 18px 24px;
+    }
+
+    /* クリエイター名をサポートページと同じ見た目にする */
+    .brand {
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    /* SupportリンクをサポートページのContactリンクと同じ見た目にする */
+    .back-link {
+      color: var(--primary-color);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* Supportリンクのホバー状態を設定する */
+    .back-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* ページ全体のコンテンツ幅をサポートページと統一する */
+    .page-container {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* プライバシーポリシー本文全体を設定する */
+    main {
+      padding: 82px 0 96px;
+    }
+
+    /* 見出し部分と本文部分は利用可能な横幅を十分に使う */
+    .policy-header,
+    .policy-content {
+      width: 100%;
+      max-width: none;
+    }
+
+    /* Privacy Policyの小見出しをサポートページのトーンに揃える */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      color: var(--accent-color);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* 小見出し左側にサポートページと同じ丸い装飾を表示する */
+    .eyebrow::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      content: "";
+    }
+
+    /* アプリ名をサポートページの見出しと同じ書体にする */
+    h1 {
+      margin: 0;
+      color: var(--primary-color);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+      font-size: clamp(2.7rem, 8vw, 5.8rem);
+      font-weight: 500;
+      line-height: 1.06;
+      letter-spacing: -0.055em;
+    }
+
+    /* サブタイトルを設定する */
+    .subtitle {
+      margin: 14px 0 0;
+      color: var(--accent-color);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    /* 冒頭説明を横幅いっぱいに近い形で表示する */
+    .lead {
+      max-width: 100%;
+      margin: 30px 0 0;
+      color: var(--muted-text-color);
+      font-size: clamp(1rem, 2vw, 1.12rem);
+    }
+
+    /* ローカル保存についての強調ボックスを設定する */
+    .local-data-note {
+      width: 100%;
+      margin-top: 34px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--accent-color);
+      background: var(--accent-soft-color);
+      color: var(--muted-text-color);
+    }
+
+    /* 強調ボックス内の重要部分を濃くする */
+    .local-data-note strong {
+      color: var(--text-color);
+    }
+
+    /* プライバシーポリシー本文の開始位置を設定する */
+    .policy-content {
+      margin-top: 64px;
+    }
+
+    /* 各項目をサポートページのセクションと馴染む見た目にする */
+    .policy-section {
+      padding: 34px 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* 各項目の見出しをサポートページと同じ書体にする */
+    .policy-section h2 {
+      margin: 0 0 14px;
+      color: var(--primary-color);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+      font-size: clamp(1.45rem, 4vw, 2rem);
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    /* 各項目の本文を設定する */
+    .policy-section p {
+      margin: 0;
+      color: var(--muted-text-color);
+    }
+
+    /* 連続する段落の間隔を設定する */
+    .policy-section p + p {
+      margin-top: 14px;
+    }
+
+    /* メールアドレスリンクをサポートページと揃える */
+    .email-link {
+      display: inline-block;
+      max-width: 100%;
+      margin-top: 18px;
+      color: var(--primary-color);
+      font-size: clamp(1rem, 3vw, 1.18rem);
+      font-weight: 800;
+      overflow-wrap: anywhere;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 5px;
+    }
+
+    /* 制定日を設定する */
+    .updated-date {
+      margin-top: 46px;
+      color: var(--muted-text-color);
+      font-size: 0.86rem;
+    }
+
+    /* フッターをサポートページと統一する */
+    .site-footer {
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* フッター内部をサポートページと統一する */
+    .site-footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 28px 24px 36px;
+      color: var(--muted-text-color);
+      font-size: 0.82rem;
+    }
+
+    /* フッター内リンクをサポートページと統一する */
+    .site-footer a {
+      color: var(--primary-color);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* デスクトップでは指定した位置以外で冒頭説明が不自然に折り返されにくくする */
+    @media (min-width: 761px) {
+      .lead {
+        white-space: normal;
+      }
+    }
+
+    /* タブレット以下の表示を調整する */
+    @media (max-width: 760px) {
+      /* ヘッダーの上下余白を少し詰める */
+      .site-header__inner {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      /* 本文の上下余白をスマートフォン向けに調整する */
+      main {
+        padding: 58px 0 72px;
+      }
+
+      /* スマートフォンでは冒頭説明を画面幅に合わせて自然に折り返す */
+      .lead {
+        white-space: normal;
+      }
+
+      /* 本文開始前の余白を調整する */
+      .policy-content {
+        margin-top: 48px;
+      }
+
+      /* 各項目の上下余白を調整する */
+      .policy-section {
+        padding: 28px 0;
+      }
+
+      /* 強調ボックスの余白を調整する */
+      .local-data-note {
+        padding: 16px 18px;
+      }
+
+      /* フッターを縦並びにする */
+      .site-footer__inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    /* 小さいスマートフォン向けに左右余白を調整する */
+    @media (max-width: 480px) {
+      .site-header__inner,
+      .page-container,
+      .site-footer__inner {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      /* 大見出しの折り返しを自然にする */
+      h1 {
+        line-height: 1.08;
+      }
+    }
+
+  </style>
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <!-- クリエイター名を表示する -->
+      <a class="brand" href="../../">satoimo014</a>
+
+      <!-- サポートページへ戻るリンクを表示する -->
+      <a class="back-link" href="../../">← Support</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-container">
+      <header class="policy-header">
+        <p class="eyebrow">Privacy Policy</p>
+        <h1>マインスイーパー</h1>
+        <p class="subtitle">MINES 操作検証版</p>
+        <p class="lead">
+          satoimo014（以下「運営者」）は、iOS向けマインスイーパーアプリ
+          「MINES 操作検証版」（以下「本アプリ」）における情報の取り扱いについて、
+          以下のとおりプライバシーポリシーを定めます。
+        </p>
+        <div class="local-data-note">
+          <strong>ゲームの進行情報と設定は、端末内に保存されます。</strong><br>
+          本アプリには利用者登録や独自のクラウド同期はなく、
+          ゲームの進行情報を運営者のサーバーへ自動送信する機能はありません。
+        </div>
+      </header>
+
+      <div class="policy-content">
+        <section class="policy-section">
+          <h2>1. 端末内に保存する情報</h2>
+          <p>本アプリは、中断したゲームの復元と操作設定の保持のため、難易度、盤面の状態、開放したマス、旗、カーソル位置、拡大率、表示位置、経過時間およびカラーテーマを端末内のアプリ保存領域に保存します。</p>
+          <p>運営者は、これらの保存内容を収集・閲覧するための独自サーバーを運用していません。ゲームの主要機能はオフラインで利用できます。</p>
+        </section>
+
+        <section class="policy-section">
+          <h2>2. 個人情報・権限と通信</h2>
+          <p>本アプリでは、ゲームの利用にあたり、氏名、住所、電話番号、メールアドレスなどの登録を求めません。また、位置情報、連絡先、写真ライブラリ、カメラ、マイクへのアクセスをゲームのために求めることはありません。</p>
+          <p>サポートページや本ポリシーなどの外部リンクを開いた場合は、ブラウザ等を通じてリンク先と通信します。その際、リンク先のサービスがIPアドレスやブラウザ情報などを取り扱う場合があります。</p>
+        </section>
+
+        <section class="policy-section">
+          <h2>3. 広告とアクセス解析</h2>
+          <p>現在の操作検証版には、広告配信SDK、広告識別子を使った追跡機能、独自のアクセス解析SDKを組み込んでいません。アプリ内の広告用の仮表示枠から、広告事業者へ情報を送信することはありません。</p>
+          <p>今後、広告配信や外部サービスを追加する場合は、利用する事業者、取り扱う情報、利用目的および必要な選択肢を確認し、導入する機能に合わせて本ポリシーを更新します。</p>
+        </section>
+
+        <section class="policy-section">
+          <h2>4. Apple・TestFlightによる診断情報</h2>
+          <p>App Store、TestFlightおよびiOSが提供する診断情報やフィードバックは、Appleの仕組み・利用者の設定およびAppleのプライバシーポリシーに従って取り扱われます。</p>
+          <p>運営者は、Apple経由でクラッシュ情報、利用状況に関する診断情報、テスト中のフィードバックなどを受け取る場合があり、不具合の調査と品質改善のために利用します。</p>
+          <p><a href="https://www.apple.com/jp/legal/privacy/" target="_blank" rel="noopener noreferrer">Appleのプライバシーポリシー</a><br>
+          <a href="https://testflight.apple.com/" target="_blank" rel="noopener noreferrer">TestFlightについて</a></p>
+        </section>
+
+        <section class="policy-section">
+          <h2>5. お問い合わせ情報の取り扱い</h2>
+          <p>利用者がお問い合わせを行った場合、運営者は、メールアドレス、問い合わせ内容および利用者が任意で提供した画像や端末情報などを受け取ります。これらは、お問い合わせへの回答、不具合の調査および必要な連絡のために利用します。</p>
+          <p>お問い合わせ情報は、対応に必要な期間、適切に管理し、不要になった情報は適切に削除します。本人の同意がある場合または法令に基づく場合を除き、第三者へ提供しません。</p>
+          <p>お問い合わせメールの送受信にはGoogleのメールサービスを利用します。メールサービスにおける情報の取り扱いは、<a href="https://policies.google.com/privacy?hl=ja" target="_blank" rel="noopener noreferrer">Googleのプライバシーポリシー</a>をご確認ください。</p>
+        </section>
+
+        <section class="policy-section">
+          <h2>6. データの保持と削除</h2>
+          <p>中断したゲームのデータは、新しいゲームを開始すると置き換わります。カラーテーマは設定画面から変更できます。端末内の本アプリの保存データをすべて削除する場合は、iOSの手順に従って本アプリを削除してください。「Appを取り除く」操作ではデータが残る場合があります。</p>
+          <p>OSや利用者の設定により、アプリの保存データが端末のバックアップに含まれる場合があります。バックアップの保持・削除・復元は、利用者が利用するOSやサービスの設定に従います。運営者が独自にバックアップを取得することはありません。</p>
+          <p>端末の故障、紛失、初期化、アプリの削除などによって保存データが失われる場合があります。</p>
+        </section>
+
+        <section class="policy-section">
+          <h2>7. サポートサイトと外部サービス</h2>
+          <p>本ポリシーおよびサポートサイトはGitHub Pagesで提供します。サイトの閲覧に伴う接続情報などは、ホスティング事業者の仕組みにより取り扱われる場合があります。運営者は、このページに独自の広告・アクセス解析ツールを設置していません。</p>
+          <p>外部リンク先のサービスにおける情報の取り扱いには、各サービスのプライバシーポリシーが適用されます。</p>
+          <p><a href="https://docs.github.com/ja/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHubの一般プライバシーステートメント</a></p>
+        </section>
+
+        <section class="policy-section">
+          <h2>8. 本ポリシーの変更</h2>
+          <p>本アプリの機能、利用するサービス、法令またはプラットフォームの要件などの変更に応じて、本ポリシーを更新することがあります。変更後の内容と更新日はこのページに掲載し、必要に応じてアプリ内などで案内します。</p>
+        </section>
+
+        <section class="policy-section">
+          <h2>9. お問い合わせ窓口</h2>
+          <p>運営者：satoimo014</p>
+          <p>本アプリおよび本ポリシーについてのお問い合わせは、下記の窓口へお願いします。</p>
+          <a class="email-link" href="mailto:satoimo014.support@gmail.com?subject=%E3%80%90%E3%83%9E%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%A4%E3%83%BC%E3%83%91%E3%83%BC%E3%80%91%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">satoimo014.support@gmail.com</a>
+          <p><a href="../../#contact">共通サポートページへ戻る</a></p>
+        </section>
+
+        <p class="updated-date">制定日：2026年10月23日<br>最終更新日：2026年10月23日</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-container site-footer__inner">
+      <span id="copyrightText">© satoimo014. All rights reserved.</span>
+      <a class="footer-link" href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <script>
+    // 現在の年を取得する
+    const currentYear = new Date().getFullYear();
+
+    // コピーライト表示の要素を取得する
+    const copyrightTextElement = document.getElementById("copyrightText");
+
+    // コピーライトに現在の年を表示する
+    copyrightTextElement.textContent = `© ${currentYear} satoimo014. All rights reserved.`;
+  </script>
+</body>
+</html>
